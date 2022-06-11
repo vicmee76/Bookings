@@ -21,7 +21,12 @@ namespace Bookings.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllUsers()
         {
-            return Ok("Success");
-        }
+            var users = await _service.GetAllUsers();
+            if (users.Any())
+            {
+                return Ok(users);
+            }
+            return NotFound();
+        } 
     }
 }
