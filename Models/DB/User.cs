@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace Bookings.Models.DB
 {
-    public partial class User
+    public  partial class User
     {
-        public int UsersId { get; set; }
+        public  int UsersId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }

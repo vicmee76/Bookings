@@ -19,14 +19,27 @@ namespace Bookings.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAllUsers()
+        public IActionResult GetAllUsers()
         {
-            var users = await _service.GetAllUsers();
+            var users = _service.GetAllUsers();
             if (users.Any())
-            {
                 return Ok(users);
-            }
             return NotFound();
-        } 
+        }
+
+
+
+
+        public IActionResult GetUserById(int? v)
+        {
+            if (v is null)
+                return BadRequest();
+
+            var user = _service.GetUserById(v).AsEnumerable();
+            if (!user.Any())
+                return NotFound();
+
+            return Ok(user);
+        }
     }
 }

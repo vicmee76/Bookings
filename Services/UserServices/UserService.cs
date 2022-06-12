@@ -1,21 +1,29 @@
 ﻿using Bookings.Models.DB;
 using System.Collections.Generic;
-using System.Threading.Tasks;
+using System.Linq;
 
 namespace Bookings.Services.UserServices
 {
     public class UserService : IUserService
     {
-       
+        private readonly BOOKINGS_DBContext _context;
 
-        public UserService()
+        public UserService(BOOKINGS_DBContext context)
         {
-
+            _context = context;
         }
 
-        public Task<List<User>> GetAllUsers()
+        public List<User> GetAllUsers()
         {
-            return null;
+            var users = _context.Users.ToList();
+            return users;
         }
+
+
+        public IEnumerable<User> GetUserById(int? v)
+        {
+            throw new System.NotImplementedException();
+        }
+
     }
 }
