@@ -13,7 +13,7 @@ namespace Bookings.Services.UserServices
             _context = context;
         }
 
-        public List<User> GetAllUsers()
+        public virtual List<User> GetAllUsers()
         {
             var users = _context.Users.ToList();
             return users;
