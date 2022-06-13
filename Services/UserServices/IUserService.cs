@@ -9,5 +9,6 @@ namespace Bookings.Services.UserServices
     {
         List<User> GetAllUsers();
         User GetUserById(int? v);
+        Task<User> CreateUser(User mockUsers);
     }
 }

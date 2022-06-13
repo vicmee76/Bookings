@@ -1,4 +1,5 @@
-﻿using Bookings.Services.UserServices;
+﻿using Bookings.Models.DB;
+using Bookings.Services.UserServices;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -40,6 +41,14 @@ namespace Bookings.Controllers
                 return NotFound();
 
             return Ok(user);
+        }
+
+
+
+
+        public Task<IActionResult> CreateUser(User mockUsers)
+        {
+            throw new NotImplementedException();
         }
     }
 }

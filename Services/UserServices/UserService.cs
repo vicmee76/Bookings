@@ -1,6 +1,7 @@
 ﻿using Bookings.Models.DB;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Bookings.Services.UserServices
 {
@@ -11,6 +12,11 @@ namespace Bookings.Services.UserServices
         public UserService(BOOKINGS_DBContext context)
         {
             _context = context;
+        }
+
+        public Task<User> CreateUser(User mockUsers)
+        {
+            throw new System.NotImplementedException();
         }
 
         public List<User> GetAllUsers()
