@@ -13,17 +13,20 @@ namespace Bookings.Services.UserServices
             _context = context;
         }
 
-        public virtual List<User> GetAllUsers()
+        public List<User> GetAllUsers()
         {
             var users = _context.Users.ToList();
             return users;
         }
 
-
-        public IEnumerable<User> GetUserById(int? v)
+        public User GetUserById(int? v)
         {
-            throw new System.NotImplementedException();
-        }
+            User user = new();
+            if (v is null)
+                return user;
 
+             user = _context.Users.Where(x => x.UsersId == v).FirstOrDefault();
+            return user;
+        }
     }
 }

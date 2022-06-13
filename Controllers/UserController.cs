@@ -35,8 +35,8 @@ namespace Bookings.Controllers
             if (v is null)
                 return BadRequest();
 
-            var user = _service.GetUserById(v).AsEnumerable();
-            if (!user.Any())
+            var user = _service.GetUserById(v);
+            if (user.FirstName is null)
                 return NotFound();
 
             return Ok(user);

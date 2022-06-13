@@ -8,6 +8,6 @@ namespace Bookings.Services.UserServices
     public interface IUserService
     {
         List<User> GetAllUsers();
-        IEnumerable<User> GetUserById(int? v);
+        User GetUserById(int? v);
     }
 }
