@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Bookings", "Bookings.csproj
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "DatabaseBookings", "DatabaseBookings\DatabaseBookings.sqlproj", "{653AA58D-4BD7-4E69-A3F4-066C5DC2786A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BookingsTest.Test", "BookingsTest.Test\BookingsTest.Test.csproj", "{85B8DEBA-78F6-4674-B66B-E2B257601D34}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BookingsTest.Test", "BookingsTest.Test\BookingsTest.Test.csproj", "{85B8DEBA-78F6-4674-B66B-E2B257601D34}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
