@@ -7,6 +7,7 @@ using Moq;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using Xunit;
 
 namespace BookingsTest.Test.Services.Userservices
@@ -159,17 +160,58 @@ namespace BookingsTest.Test.Services.Userservices
 
 
 
+        [Fact]
+        public async Task CreateUser_ShouldReturnUserObjectfUserModelIsEmpty()
+        {
+            //Arrange
+            var data = _mockUsers.getUsers(0).FirstOrDefault();
 
-        //public async Task CreateUser_ShouldReturnNullIfUserModelIsEmpty()
-        //{
-        //    //Arrange
-        //    var data = _mockUsers.getUsers(0).FirstOrDefault();
+            //Act
+            var result = await _sut.CreateUser(data);
+
+            //Assert
+            result.Should().NotBeNull();
+            result.Should().BeOfType<User>();
+        }
 
 
-        //    //Act
-        //    var result = _sut.CreateUser(data);
 
-        //    //Assert
-        //}
+        [Fact]
+        public async Task CreateUser_ShouldReturnUserObjectWithOnlyEmailIfUserExits()
+        {
+            //Arrange
+            var data = _mockUsers.getUsers(1).FirstOrDefault();
+            _mockContext.Users.Add(data);
+            _mockContext.SaveChanges();
+
+            //Act
+            var result = await _sut.CreateUser(data);
+
+            //Assert
+            result.Should().NotBeNull();
+            result.Should().BeOfType<User>();
+            result.Should().NotBeEquivalentTo(data);
+            result.Should().NotBeEquivalentTo(data, x => x.ComparingRecordsByValue().ComparingByMembers<User>());
+            result.Email.Should().NotBeNullOrWhiteSpace();
+            result.Email.Should().NotBeUpperCased();
+            result.Email.Should().BeSameAs(data.Email);
+        }
+
+
+        [Fact]
+        public async Task CreateUser_ShouldReturnUserObjectWhenCreated()
+        {
+            //Arrange
+            var data = _mockUsers.getUsers(1).FirstOrDefault();
+            
+            //Act
+            var result = await _sut.CreateUser(data);
+
+            //Assert
+            result.Should().NotBeNull();
+            result.Should().BeOfType<User>();
+            result.Should().BeEquivalentTo(data);
+            result.Should().BeEquivalentTo(data, x => x.ComparingRecordsByValue().ComparingByMembers<User>());
+        }
     }
 }

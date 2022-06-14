@@ -12,7 +12,7 @@ namespace BookingsTest.Test.MockData
                 .RuleFor(x => x.UsersId, x => x.Random.Int())
                 .RuleFor(x => x.FirstName, x => x.Person.FirstName)
                 .RuleFor(x => x.LastName, x => x.Person.LastName)
-                .RuleFor(x => x.Email, x => x.Person.Email)
+                .RuleFor(x => x.Email, x => x.Person.Email.ToLower())
                 .RuleFor(x => x.Phone, x => x.Person.Phone)
                 .RuleFor(x => x.Address, x => x.Address.StreetAddress());
 

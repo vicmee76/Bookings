@@ -3,3 +3,4 @@ C:\Users\DABERECHI\source\repos\Bookings\DatabaseBookings\bin\Debug\DatabaseBook
 C:\Users\DABERECHI\source\repos\Bookings\DatabaseBookings\bin\Debug\DatabaseBookings.pdb
 C:\Users\DABERECHI\source\repos\Bookings\DatabaseBookings\obj\Debug\DatabaseBookings.dll
 C:\Users\DABERECHI\source\repos\Bookings\DatabaseBookings\obj\Debug\DatabaseBookings.pdb
+C:\Users\DABERECHI\source\repos\Bookings\DatabaseBookings\obj\Debug\DatabaseBookings.sqlproj.AssemblyReference.cache

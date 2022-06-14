@@ -1,4 +1,5 @@
 ﻿using Bookings.Models.DB;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -14,9 +15,28 @@ namespace Bookings.Services.UserServices
             _context = context;
         }
 
-        public Task<User> CreateUser(User mockUsers)
+        public async Task<User> CreateUser(User user)
         {
-            throw new System.NotImplementedException();
+            User users = new();
+            if (user == null)
+            {
+                return users;
+            }
+            else
+            {
+                var getUser = await _context.Users.Where(x => x.Email == user.Email).FirstOrDefaultAsync();
+                if (getUser != null)
+                {
+                    users.Email = getUser.Email;
+                    return users;
+                }
+                else
+                {
+                    await _context.Users.AddAsync(user);
+                    await _context.SaveChangesAsync();
+                    return user;
+                }
+            }
         }
 
         public List<User> GetAllUsers()
