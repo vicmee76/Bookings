@@ -30,25 +30,25 @@ namespace Bookings.Controllers
 
 
 
-
+        [HttpGet]
         public IActionResult GetUserById(int? v)
         {
             if (v is null)
                 return BadRequest();
-
             var user = _service.GetUserById(v);
             if (user.FirstName is null)
                 return NotFound();
-
             return Ok(user);
         }
 
 
-
-
-        public Task<IActionResult> CreateUser(User mockUsers)
+        [HttpPost]
+        public async Task<IActionResult> CreateUser(User user)
         {
-            throw new NotImplementedException();
+            if (user is null)
+                return NoContent();
+            var result = await _service.CreateUser(user);
+            return Created("", result);
         }
     }
 }
