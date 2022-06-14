@@ -1,9 +1,5 @@
 C:\Users\DABERECHI\source\repos\Bookings\DatabaseBookings\bin\Debug\DatabaseBookings.dacpac
 C:\Users\DABERECHI\source\repos\Bookings\DatabaseBookings\bin\Debug\DatabaseBookings.dll
 C:\Users\DABERECHI\source\repos\Bookings\DatabaseBookings\bin\Debug\DatabaseBookings.pdb
-C:\Users\DABERECHI\source\repos\Bookings\DatabaseBookings\obj\Debug\Model.xml
-C:\Users\DABERECHI\source\repos\Bookings\DatabaseBookings\obj\Debug\refactor.xml
-C:\Users\DABERECHI\source\repos\Bookings\DatabaseBookings\obj\Debug\postdeploy.sql
-C:\Users\DABERECHI\source\repos\Bookings\DatabaseBookings\obj\Debug\predeploy.sql
 C:\Users\DABERECHI\source\repos\Bookings\DatabaseBookings\obj\Debug\DatabaseBookings.dll
 C:\Users\DABERECHI\source\repos\Bookings\DatabaseBookings\obj\Debug\DatabaseBookings.pdb

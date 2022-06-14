@@ -20,6 +20,7 @@ namespace Bookings.Controllers
         }
 
         [HttpGet]
+        [Route("GetAllUsers")]
         public IActionResult GetAllUsers()
         {
             var users = _service.GetAllUsers();
@@ -31,6 +32,7 @@ namespace Bookings.Controllers
 
 
         [HttpGet]
+        [Route("GetUserById")]
         public IActionResult GetUserById(int? v)
         {
             if (v is null)
@@ -43,6 +45,7 @@ namespace Bookings.Controllers
 
 
         [HttpPost]
+        [Route("CreateUser")]
         public async Task<IActionResult> CreateUser(User user)
         {
             if (user is null)

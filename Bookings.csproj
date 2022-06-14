@@ -1,13 +1,30 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="BookingsTest.Test\**" />
+    <Compile Remove="Bookings\**" />
+    <Compile Remove="DatabaseBookings\**" />
+    <Content Remove="BookingsTest.Test\**" />
+    <Content Remove="Bookings\**" />
+    <Content Remove="DatabaseBookings\**" />
+    <EmbeddedResource Remove="BookingsTest.Test\**" />
+    <EmbeddedResource Remove="Bookings\**" />
+    <EmbeddedResource Remove="DatabaseBookings\**" />
+    <None Remove="BookingsTest.Test\**" />
+    <None Remove="Bookings\**" />
+    <None Remove="DatabaseBookings\**" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Bogus" Version="34.0.2" />
     <PackageReference Include="FluentAssertions" Version="6.7.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.17" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="5.0.17" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.17" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.17">
       <PrivateAssets>all</PrivateAssets>

@@ -16,7 +16,7 @@ namespace BookingsTest.Test.Services.Userservices
     {
 
         private readonly UserService _sut;
-        private BOOKINGS_DBContext _mockContext;
+        private readonly BOOKINGS_DBContext _mockContext;
         private readonly MockUsers _mockUsers = new();
 
         public UserServiceTest()
