@@ -125,12 +125,14 @@ namespace BookingsTest.Test.Controllers
 
 
 
-        [Fact]
-        public void GetUserById_ShouldReturnNotFound_IfTheUserIdDoesNotExits()
+        [Theory]
+        [InlineData(3)]
+        public void GetUserById_ShouldReturnNotFound_IfTheUserIdDoesNotExits(int id)
         {
-            _mockUserService.Setup(x => x.GetUserById(It.IsAny<int>())).Returns(new User());
+            var mockUsers = usersResult.getUsers(0).FirstOrDefault();
+            _mockUserService.Setup(x => x.GetUserById(id)).Returns(mockUsers);
 
-            var result = _sut.GetUserById(It.IsAny<int>());
+            var result = _sut.GetUserById(id);
 
             result.Should().BeOfType<NotFoundResult>();
             var objectResult = (NotFoundResult)result;

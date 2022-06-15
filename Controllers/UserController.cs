@@ -1,9 +1,6 @@
 ﻿using Bookings.Models.DB;
 using Bookings.Services.UserServices;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -38,7 +35,7 @@ namespace Bookings.Controllers
             if (v is null)
                 return BadRequest();
             var user = _service.GetUserById(v);
-            if (user.FirstName is null)
+            if (user is null)
                 return NotFound();
             return Ok(user);
         }
