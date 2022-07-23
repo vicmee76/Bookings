@@ -17,6 +17,7 @@ namespace Bookings.Models.DB
         {
         }
 
+        public virtual DbSet<Book> Books { get; set; }
         public virtual DbSet<User> Users { get; set; }
 
 //        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -31,6 +32,16 @@ namespace Bookings.Models.DB
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
+
+            modelBuilder.Entity<Book>(entity =>
+            {
+                entity.Property(e => e.BookId).ValueGeneratedNever();
+
+                entity.Property(e => e.BookName)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
 
             modelBuilder.Entity<User>(entity =>
             {
